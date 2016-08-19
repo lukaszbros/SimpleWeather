@@ -7,6 +7,7 @@ import ngSanitize from 'angular-sanitize';
 
 import uiRouter from 'angular-ui-router';
 import uiBootstrap from 'angular-ui-bootstrap';
+import angularSpinners from 'angular-spinners';
 
 
 import {
@@ -21,7 +22,7 @@ import constants from './app.constants';
 
 import './app.scss';
 
-angular.module('simpleWeatherApp', [ngCookies, ngResource, ngSanitize, uiRouter, uiBootstrap, navbar, footer, main, weather, constants])
+angular.module('simpleWeatherApp', [ngCookies, ngResource, ngSanitize, uiRouter, uiBootstrap, angularSpinners, navbar, footer, main, weather, constants])
   .config(routeConfig);
 
 angular.element(document)

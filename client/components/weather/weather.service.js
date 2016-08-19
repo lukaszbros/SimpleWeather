@@ -1,6 +1,6 @@
 'use strict';
 
-export function WeatherService() {
+export function WeatherService($q) {
   'ngInject';
 
   var WeatherServiceDef = {
@@ -11,7 +11,7 @@ export function WeatherService() {
      * @return {Promise}
      */
     getWeather(zipCode) {
-      return zipCode;
+      return $q.when(zipCode);
     }
   };
 

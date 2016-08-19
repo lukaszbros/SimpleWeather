@@ -5,7 +5,7 @@ export class NavbarComponent {
   /*@ngInject*/
   constructor(cities, $state) {
     this.townList = cities;
-    this.$state = $state
+    this.$state = $state;
   }
 
   showWeather(selectedTown) {
