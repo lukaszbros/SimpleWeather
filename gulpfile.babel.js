@@ -419,14 +419,14 @@ gulp.task('coverage:pre', () => {
 gulp.task('coverage:unit', () => {
     return gulp.src(paths.server.test.unit)
         .pipe(mocha())
-        .pipe(istanbul())
+        .pipe(istanbul());
         // Creating the reports after tests ran
 });
 
 gulp.task('coverage:integration', () => {
     return gulp.src(paths.server.test.integration)
         .pipe(mocha())
-        .pipe(istanbul())
+        .pipe(istanbul());
         // Creating the reports after tests ran
 });
 
@@ -512,32 +512,12 @@ gulp.task('copy:extras', () => {
         .pipe(gulp.dest(`${paths.dist}/${clientPath}`));
 });
 
-/**
- * turns 'boostrap/fonts/font.woff' into 'boostrap/font.woff'
- */
-function flatten() {
-    return through2.obj(function(file, enc, next) {
-        if(!file.isDirectory()) {
-            try {
-                let dir = path.dirname(file.relative).split(path.sep)[0];
-                let fileName = path.normalize(path.basename(file.path));
-                file.path = path.join(file.base, path.join(dir, fileName));
-                this.push(file);
-            } catch(e) {
-                this.emit('error', new Error(e));
-            }
-        }
-        next();
-    });
-}
 gulp.task('copy:fonts:dev', () => {
-    return gulp.src('node_modules/{bootstrap,font-awesome}/fonts/*')
-        .pipe(flatten())
+    return gulp.src(['node_modules/bootstrap/fonts/*', 'node_modules/weather-icons/font/*'])
         .pipe(gulp.dest(`${clientPath}/assets/fonts`));
 });
 gulp.task('copy:fonts:dist', () => {
-    return gulp.src('node_modules/{bootstrap,font-awesome}/fonts/*')
-        .pipe(flatten())
+    return gulp.src(['node_modules/bootstrap/fonts/*', 'node_modules/weather-icons/font/*'])
         .pipe(gulp.dest(`${paths.dist}/${clientPath}/assets/fonts`));
 });
 
