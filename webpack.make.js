@@ -356,7 +356,6 @@ module.exports = function makeWebpackConfig(options) {
     config.node = {
         global: 'window',
         process: true,
-        crypto: 'empty',
         clearImmediate: false,
         setImmediate: false
     };
