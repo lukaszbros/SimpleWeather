@@ -1,0 +1,15 @@
+@import "../../app/consts";
+
+.navbar {
+  background-color: $secondary-background-color;
+  color: $secondary-text-color;
+
+  .logo {
+    font-size: 3em;
+  }
+
+  .weather-select {
+    padding-top: 0.9em;
+    font-size: 1.2em;
+  }
+}

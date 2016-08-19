@@ -1,9 +1,7 @@
 $icon-font-path: '/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/vendor/assets/stylesheets/bootstrap';
 @import '~weather-icons/css/weather-icons.css';
-
-
-// @import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,900|Roboto:300,500,700,900);
+@import "consts";
 
 /**
  * App-wide Styles
@@ -16,7 +14,15 @@ $icon-font-path: '/assets/fonts/bootstrap/';
   padding: 0.2em 0;
 }
 
+body {
+  background-color: $primary-background-color;
+}
+button {
+  color: $primary-text-color;
+}
+
 // Component styles are injected through gulp
 /* inject:scss */
 @import '../components/main/main';
+@import '../components/navbar/navbar';
 /* endinject */

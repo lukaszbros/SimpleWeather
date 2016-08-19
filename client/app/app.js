@@ -27,6 +27,6 @@ angular.module('simpleWeatherApp', [ngCookies, ngResource, ngSanitize, uiRouter,
 angular.element(document)
   .ready(() => {
     angular.bootstrap(document, ['simpleWeatherApp'], {
-      strictDi: true
+      strictDi: false
     });
   });
