@@ -8,7 +8,7 @@ export class NavbarComponent {
   }
 
   showWeather(selectedTown) {
-    if (angular.isDefined(selectedTown)) {
+    if(angular.isDefined(selectedTown)) {
       console.log(`call selected town zip ${selectedTown.zipCode}`);
     }
   }

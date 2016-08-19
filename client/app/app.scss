@@ -1,4 +1,4 @@
-$icon-font-path: '/assets/fonts/bootstrap/';
+$icon-font-path: '/assets/fonts/';
 @import '~bootstrap-sass/vendor/assets/stylesheets/bootstrap';
 @import '~weather-icons/css/weather-icons.css';
 @import "consts";
@@ -23,6 +23,8 @@ button {
 
 // Component styles are injected through gulp
 /* inject:scss */
+@import 'consts';
+@import '../components/footer/footer';
 @import '../components/main/main';
 @import '../components/navbar/navbar';
 /* endinject */
