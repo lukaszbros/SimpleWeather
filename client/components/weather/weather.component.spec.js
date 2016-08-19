@@ -6,5 +6,7 @@ import {
 } from './weather.component';
 
 describe('Component: WeatherComponent', function() {
+  it ('Should get and display weather information', function () {
 
+  });
 });

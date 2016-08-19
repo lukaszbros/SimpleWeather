@@ -40,8 +40,7 @@ const paths = {
     },
     server: {
         scripts: [
-          `${serverPath}/**/!(*.spec|*.integration).js`,
-          `!${serverPath}/config/local.env.sample.js`
+          `${serverPath}/**/!(*.spec|*.integration).js`
         ],
         json: [`${serverPath}/**/*.json`],
         test: {
@@ -342,7 +341,6 @@ gulp.task('serve', cb => {
             'copy:fonts:dev',
             'env:all'
         ],
-        // 'webpack:dev',
         ['start:server', 'start:client'],
         'watch',
         cb

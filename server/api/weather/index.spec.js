@@ -2,7 +2,7 @@
 
 var proxyquire = require('proxyquire').noPreserveCache();
 
-var thingCtrlStub = {
+var weatherCtrlStub = {
   getWeather: 'weatherCtrl.getWeather'
 };
 
@@ -17,10 +17,10 @@ var thingIndex = proxyquire('./index.js', {
       return routerStub;
     }
   },
-  './thing.controller': thingCtrlStub
+  './weather.controller': weatherCtrlStub
 });
 
-describe('Thing API Router:', function() {
+describe('Weather API Router:', function() {
   it('should return an express router instance', function() {
     expect(thingIndex).to.equal(routerStub);
   });
