@@ -3,13 +3,14 @@ import angular from 'angular';
 export class NavbarComponent {
 
   /*@ngInject*/
-  constructor(cities) {
+  constructor(cities, $state) {
     this.townList = cities;
+    this.$state = $state
   }
 
   showWeather(selectedTown) {
     if(angular.isDefined(selectedTown)) {
-      console.log(`call selected town zip ${selectedTown.zipCode}`);
+      this.$state.go('weather', {zipCode: selectedTown.zipCode});
     }
   }
 }

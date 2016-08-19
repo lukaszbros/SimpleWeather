@@ -4,7 +4,7 @@ export default function routes($stateProvider) {
   'ngInject';
 
   $stateProvider.state('weather', {
-    url: '/:zipCode',
+    url: '/weather/:zipCode',
     template: '<weather></weather>'
   });
 }
