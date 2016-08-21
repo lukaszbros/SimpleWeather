@@ -1,24 +1,10 @@
 import angular from 'angular';
-
-export class NavbarComponent {
-
-  /*@ngInject*/
-  constructor(cities, $state) {
-    this.townList = cities;
-    this.$state = $state;
-  }
-
-  showWeather(selectedTown) {
-    if(angular.isDefined(selectedTown)) {
-      this.$state.go('weather', {zipCode: selectedTown.zipCode});
-    }
-  }
-}
+import {NavbarController} from './navbar.controller'
 
 export default angular.module('simpleWeatherApp.navbar', [])
   .component('navbar', {
     template: require('./navbar.html'),
-    controller: NavbarComponent,
+    controller: NavbarController,
     controllerAs: 'navbar'
   })
   .name;

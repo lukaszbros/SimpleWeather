@@ -1,8 +1,7 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import routing from './main.routes';
-
-export class MainController {}
+import {MainController} from './main.controller';
 
 export default angular.module('simpleWeatherApp.main', [uiRouter])
   .config(routing)

@@ -2,7 +2,7 @@
 import navbar from './navbar.component';
 
 define('Component: Navbar', () => {
-  var scope,
+  let scope,
       state,
       navbarComponent,
       cities = [{name: 'city1', zipCode: '1234'}, {name: 'city2', zipCode: '8888'}];

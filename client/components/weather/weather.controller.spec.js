@@ -1,20 +1,27 @@
 'use strict';
-
 import weather from './weather.component';
 
 describe('Component: Weather', function() {
-  var scope,
+  const zipCode = '123';
+  let scope,
       stateParams,
-      weatherComponent;
+      weatherComponent,
+      WeatherService;
 
   beforeEach(angular.mock.module(weather));
 
   beforeEach(inject(function($componentController, $rootScope) {
     scope = $rootScope.$new();
-    stateParams = sinon.spy();
+    stateParams = {
+      zipCode: zipCode
+    };
+    WeatherService = {
+      getWeather: sinon.spy()
+    };
     weatherComponent = $componentController('weather', {
       $stateParams: stateParams,
-      $scope: scope
+      $scope: scope,
+      WeatherService: WeatherService
     });
   }));
 });
