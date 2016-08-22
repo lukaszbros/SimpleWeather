@@ -3,15 +3,18 @@
 export class WeatherController {
 
   /*@ngInject*/
-  constructor($stateParams, WeatherService) {
+  constructor($stateParams, weatherMapping, WeatherService) {
     this.WeatherService = WeatherService;
     this.selectedTownZipCode = $stateParams.zipCode;
     this.isLoaded = false;
+    this.weatherMapping = weatherMapping
   }
 
   $onInit() {
     this.WeatherService.getWeather(this.selectedTownZipCode)
-        .then(() => {
+        .then((response) => {
+          response.data.atmosphere.pressure = Math.round(response.data.atmosphere.pressure);
+          this.forecast = response.data;
           this.isLoaded = true;
         });
   }

@@ -1,3 +1,36 @@
 .weather {
   margin-bottom: 2em;
+
+  .today-weather {
+    font-size: 2em;
+  }
+
+  .forecast {
+    padding: 0 0 0.5em 0.5em;
+
+    .date {
+      font-weight: bold;
+    }
+
+    .day {
+      text-transform: uppercase;
+    }
+
+    .forecast-icon {
+      font-size: 3em;
+      line-height: 1.5em;
+    }
+
+    .info-icon {
+      font-size: 1.2em;
+    }
+
+    .unit {
+      font-size: 0.6em;
+    }
+
+    .sun {
+      font-size: 0.6em;
+    }
+  }
 }

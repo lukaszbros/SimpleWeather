@@ -4,5 +4,27 @@
       <spinner name="loadingSpinner" show="!weather.isLoaded" img-src="/assets/images/ripple.svg"></spinner>
     </div>
   </div>
+  <div ng-show="weather.isLoaded">
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <h1>Weather forecast for {{weather.forecast.location.city}}, {{weather.forecast.location.region}}</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="forecast col-xs-6 col-sm-3" ng-repeat="dayForecast in weather.forecast.item.forecast" ng-class="{'today-weather': $first}">
+        <span class="date">{{dayForecast.date}}</span><br>
+        <span class="day">{{dayForecast.day}}</span><br>
+        <i class="forecast-icon wi" ng-class="[weather.weatherMapping[dayForecast.code]]"></i><br>
+        <i class="info-icon wi wi-thermometer"></i> <span>{{dayForecast.low}}-{{dayForecast.high}}</span><i class="wi wi-fahrenheit"></i>
+        <span ng-if="$first">
+          <br><span>now {{weather.forecast.item.condition.temp}}</span><i class="wi wi-fahrenheit"></i>
+          <br><i class="info-icon wi wi-windy"></i> <span>{{weather.forecast.wind.speed}}</span><span class="unit">{{weather.forecast.units.speed}}</span>
+          <br><i class="info-icon glyphicon glyphicon-dashboard"></i> <span>{{weather.forecast.atmosphere.pressure}}</span><span class="unit">{{weather.forecast.units.pressure}}</span>
+          <br><i class="info-icon glyphicon glyphicon-tint"></i> <span>{{weather.forecast.atmosphere.humidity}}</span><span class="unit">%</span>
+          <br><span class="sun"><i class="wi wi-sunrise"></i> <span>{{weather.forecast.astronomy.sunrise}}</span> <i class="wi wi-sunset"></i> <span>{{weather.forecast.astronomy.sunset}}</span></span>
+        </span>
+      </div>
+    </div>
+  </div>
 </div>
 

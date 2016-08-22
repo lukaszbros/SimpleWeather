@@ -11,10 +11,7 @@ export function WeatherService($http) {
      * @return {Promise}
      */
     getWeather(zipCode) {
-      return $http.get(`/api/weather/${zipCode}`)
-          .then(response => {
-            this.awesomeThings = response.data;
-          });
+      return $http.get(`/api/weather/${zipCode}`);
     }
   };
 
