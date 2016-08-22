@@ -4,7 +4,12 @@
       <spinner name="loadingSpinner" show="!weather.isLoaded" img-src="/assets/images/ripple.svg"></spinner>
     </div>
   </div>
-  <div ng-show="weather.isLoaded">
+  <div ng-show="weather.error" class="row">
+    <div class="col-sm-12 text-center error">
+      {{weather.error}}
+    </div>
+  </div>
+  <div ng-show="weather.isLoaded && !weather.error">
     <div class="row">
       <div class="col-sm-12 text-center">
         <h1>Weather forecast for {{weather.forecast.location.city}}, {{weather.forecast.location.region}}</h1>

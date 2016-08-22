@@ -20,8 +20,8 @@ var requestYahooApi = function(zipCode) {
   where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20placetype%3D'Zip'%20AND${queryZipCodes})\
   &format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys`;
 
-  return new Promise(function(response) {
-    https.get(apiPath, yahooApiResponse => {
+  return new Promise(function(response, reject) {
+    var yahooApiRequest = https.get(apiPath, yahooApiResponse => {
       yahooApiResponse.setEncoding('binary');
 
       let resData = '';
@@ -34,6 +34,11 @@ var requestYahooApi = function(zipCode) {
         response(result);
       });
     });
+
+    yahooApiRequest.end();
+    yahooApiRequest.on('error', e => {
+      reject(e);
+    });
   });
 };
 
@@ -44,10 +49,13 @@ export function getWeather(request, response) {
   return requestYahooApi(zipCode)
     .then(result => {
       if(result.query.count === 0) {
-        response.status(404).send({err: 'No weather found'});
+        response.status(404).send({err: 'No weather found.'});
       } else {
         response.status(200).send(result.query.results.channel);
       }
+    })
+    .catch(error => {
+      response.status(400).send({err: 'Error getting weather from Yahoo.', errorDetails: error});
     });
 }
 
@@ -59,12 +67,15 @@ export function getWeatherByArray(request, response) {
     return requestYahooApi(zipCodes)
       .then(result => {
         if(result.query.count === 0) {
-          response.status(404).send({err: 'No weather found'});
+          response.status(404).send({err: 'No weather found.'});
         } else {
           response.status(200).send(result.query.results.channel);
         }
+      })
+      .catch(error => {
+        response.status(400).send({err: 'Error getting weather from Yahoo.', errorDetails: error});
       });
   } else {
-    response.status(400).send({err: 'Missing cities zip codes'});
+    response.status(400).send({err: 'Missing cities zip codes.'});
   }
 }
