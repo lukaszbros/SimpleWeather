@@ -1,7 +1,7 @@
 'use strict';
 import weather from './weather.component';
 
-describe('Component: Weather', function() {
+describe('Component: Weather', () => {
   const zipCode = '123';
   let scope,
       stateParams,
@@ -24,4 +24,9 @@ describe('Component: Weather', function() {
       WeatherService: WeatherService
     });
   }));
+
+  it('Should load weather from weather service', () => {
+    expect(WeatherService.getWeather.called);
+    expect(weatherComponent.isLoaded);
+  })
 });

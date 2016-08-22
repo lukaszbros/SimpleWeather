@@ -1,7 +1,7 @@
 'use strict';
 import navbar from './navbar.component';
 
-define('Component: Navbar', () => {
+describe('Component: Navbar', () => {
   let scope,
       state,
       navbarComponent,
@@ -10,14 +10,14 @@ define('Component: Navbar', () => {
   beforeEach(angular.mock.module(navbar));
 
   beforeEach(inject(function($componentController, $rootScope) {
-    scope = $rootScope.$new();
-    state = {};
-    state.go = sinon.spy();
-    navbarComponent = $componentController('navbar', {
-      cities: cities,
-      $state: state,
-      $scope: scope
-    });
+      scope = $rootScope.$new();
+      state = {};
+      state.go = sinon.spy();
+      navbarComponent = $componentController('navbar', {
+        cities: cities,
+        $state: state,
+        $scope: scope
+      });
   }));
 
   it('Should switch the state on town selection', () => {

@@ -1,5 +1,5 @@
 import angular from 'angular';
-import {NavbarController} from './navbar.controller'
+import {NavbarController} from './navbar.controller';
 
 export default angular.module('simpleWeatherApp.navbar', [])
   .component('navbar', {
