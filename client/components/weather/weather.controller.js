@@ -18,7 +18,7 @@ export class WeatherController {
         this.forecast = response.data;
         this.isLoaded = true;
       }, errorResponse => {
-        if(errorResponse.data.err) {
+        if(errorResponse.data && errorResponse.data.err) {
           this.error = errorResponse.data.err;
         } else {
           this.error = 'Some error occurred. Please try again.';
