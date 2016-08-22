@@ -1,6 +1,7 @@
 'use strict';
 
 export class WeatherController {
+
   /*@ngInject*/
   constructor($stateParams, WeatherService) {
     this.WeatherService = WeatherService;
