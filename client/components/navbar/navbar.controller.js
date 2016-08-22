@@ -14,12 +14,9 @@ export class NavbarController {
   $onInit() {
     this.$rootScope.$on('$stateChangeSuccess', () => {
       if(this.$stateParams.zipCode) {
-        this.selectedTown = this.townList.filter(town => {
-          return town.zipCode === this.$stateParams.zipCode;
-        })[0]
+        this.selectedTown = this.townList.filter(town => town.zipCode === this.$stateParams.zipCode)[0];
       }
     });
-
   }
 
   showWeather(selectedTown) {

@@ -21,6 +21,7 @@ describe('Component: Weather', () => {
     weatherComponent = $componentController('weather', {
       $stateParams: stateParams,
       $scope: scope,
+      weatherMapping: [],
       WeatherService: WeatherService
     });
   }));

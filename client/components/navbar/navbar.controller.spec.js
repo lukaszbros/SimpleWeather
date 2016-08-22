@@ -16,7 +16,8 @@ describe('Component: Navbar', () => {
       navbarComponent = $componentController('navbar', {
         cities: cities,
         $state: state,
-        $scope: scope
+        $scope: scope,
+        $stateParams : {}
       });
   }));
 

@@ -7,12 +7,12 @@ export class WeatherController {
     this.WeatherService = WeatherService;
     this.selectedTownZipCode = $stateParams.zipCode;
     this.isLoaded = false;
-    this.weatherMapping = weatherMapping
+    this.weatherMapping = weatherMapping;
   }
 
   $onInit() {
     this.WeatherService.getWeather(this.selectedTownZipCode)
-        .then((response) => {
+        .then(response => {
           response.data.atmosphere.pressure = Math.round(response.data.atmosphere.pressure);
           this.forecast = response.data;
           this.isLoaded = true;
